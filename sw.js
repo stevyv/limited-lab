@@ -1,5 +1,5 @@
-// Limited Lab service worker (build 3338a9d70581)
-const APP = 'app-3338a9d70581', IMG = 'card-images-v1';
+// Limited Lab service worker (build 82baad9223f4)
+const APP = 'app-82baad9223f4', IMG = 'card-images-v1';
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(APP).then((c) => c.addAll(['./', 'manifest.webmanifest', 'apple-touch-icon.png'])).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== APP && k !== IMG).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', (e) => {
